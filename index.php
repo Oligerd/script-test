@@ -12,6 +12,13 @@ and open the template in the editor.
     <body>
         <?php
         $directory = "modules";
+        $enabled_modules = ['custom', 'custom_1', 'custom_2'];
+
+        define('__ROOT__', dirname(dirname(__FILE__)));
+//        echo(__ROOT__);
+        foreach ($enabled_modules as $value) {
+            require_once(__ROOT__.'/script_test/modules/'.$value.'.php');
+        }
 
         $scanned_directory = array_diff(scandir($directory), array('..', '.'));
 
@@ -22,7 +29,7 @@ and open the template in the editor.
             $modules_names[] = $item;
         }
 
-        print_r($modules_names);
+//        print_r($modules_names);
         
         $hello_world = "Hello world";
         
