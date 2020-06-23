@@ -15,7 +15,7 @@ and open the template in the editor.
 
         $scanned_directory = array_diff(scandir($directory), array('..', '.'));
 
-        $$modules_names = [];
+        $modules_names = [];
 
         foreach ($scanned_directory as $key => $item) {
             $item = rtrim($item, ".php");
@@ -27,9 +27,12 @@ and open the template in the editor.
         $hello_world = "Hello world";
         
         foreach ($modules_names as $module_name) {
-            $function_name = $module_name . '_hello_wold';
+
+            $function_name = $module_name . '_hello_world';
+//            print_r($function_name);
             if (function_exists($function_name)) {
-                $function_name($hello_wold);
+                $function_name($hello_world);
+
             }
         }
         
