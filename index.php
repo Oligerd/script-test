@@ -15,14 +15,25 @@ and open the template in the editor.
 
         $scanned_directory = array_diff(scandir($directory), array('..', '.'));
 
-        $items = array();
+        $$modules_names = [];
 
         foreach ($scanned_directory as $key => $item) {
             $item = rtrim($item, ".php");
-            $items[] = $item;
+            $modules_names[] = $item;
         }
 
-        print_r($items);
+        print_r($modules_names);
+        
+        $hello_world = "Hello world";
+        
+        foreach ($modules_names as $module_name) {
+            $function_name = $module_name . '_hello_wold';
+            if (function_exists($function_name)) {
+                $function_name($hello_wold);
+            }
+        }
+        
         ?>
+        <h1><?php print_r($hello_world); ?></h1>
     </body>
 </html>
