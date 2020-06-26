@@ -4,9 +4,9 @@ $directory = "modules";
 $enabled_modules = ['custom', 'custom_1', 'custom_2'];
 
 define('__ROOT__', dirname(dirname(__FILE__)));
-//        echo(__ROOT__);
+
 foreach ($enabled_modules as $value) {
-    require_once(__ROOT__ . '/script_test/modules/' . $value . '.php');
+    require_once(__ROOT__ . '/modules/' . $value . '.php');
 }
 
 $scanned_directory = array_diff(scandir($directory), array('..', '.'));
@@ -25,7 +25,7 @@ $hello_world = "Hello world";
 foreach ($modules_names as $module_name) {
 
     $function_name = $module_name . '_hello_world';
-//            print_r($function_name);
+
     if (function_exists($function_name)) {
         $function_name($hello_world);
     }

@@ -10,7 +10,7 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <?php include 'core/script.php';?>
+        <?php require_once __DIR__ . '/core/script.php'; ?>
         <h1><?php print_r($hello_world); ?></h1>
     </body>
 </html>
