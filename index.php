@@ -11,6 +11,6 @@ and open the template in the editor.
     </head>
     <body>
         <?php require_once __DIR__ . '/core/script.php'; ?>
-        <h1><?php print_r($hello_world); ?></h1>
+        <h1><?php print_r($output); ?></h1>
     </body>
 </html>

@@ -1,4 +1,7 @@
 <?php
+require_once __DIR__ . '/functions.php';
+
+
 $hello_world = "Hello world";
 $directory = "modules";
 $enabled_modules = ['custom', 'custom_1', 'custom_2'];
@@ -11,7 +14,6 @@ foreach ($enabled_modules as $value) {
 
 $scanned_directory = array_diff(scandir($directory), array('..', '.'));
 
-$modules_names = [];
 
 foreach ($scanned_directory as $key => $item) {
     $item = rtrim($item, ".php");
@@ -19,20 +21,4 @@ foreach ($scanned_directory as $key => $item) {
 }
 
 
-function w_modules($vars, $var1){
-    print_r($var1);
-    foreach ($vars as $module_name) {
-//        print_r($module_name);
-        $function_name = $module_name . '_hello_world';
-//        print_r($function_name);
-        print_r(function_exists($function_name));
-        if (function_exists($function_name)) {
-           $function_name($var1);
-           print_r("'".$var1."'");
-        }
-    }
-return;
-}
-
-
-w_modules($modules_names, $hello_world);
+$output = w_modules($modules_names, $hello_world);
