@@ -1,5 +1,17 @@
 <?php
 
+function enable_modules($enabled_modules){
+    foreach ($enabled_modules as $module_name){
+        if(defined('__ROOT__')){
+            require_once (__ROOT__.'/modules/'.$module_name.'.php');
+        }
+        else{
+            echo 'path to modules undefind';
+        }
+    }
+    return;
+}
+
 function w_modules($var, $var1){
 //    print_r($var1);
     foreach ($var as $module_name) {
